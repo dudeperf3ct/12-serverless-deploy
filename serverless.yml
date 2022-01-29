@@ -6,19 +6,17 @@ frameworkVersion: "2 || 3"
 
 provider:
   name: aws
-  lambdaHashingVersion: "20201221"
-  apiName: ${self:service}
-  apiGateway:
-    description: REST API ${self:service}
-    metrics: true
+  ecr:
+    # In this section you can define images that will be built locally and uploaded to ECR
+    images:
+      sentimentapp:
+        path: ./
 
 functions:
-  api:
-    image: dudeperf3ct7/sentiment-serverless-framework:0.1
+  hello:
+    image:
+      name: sentimentapp
     events:
-      - http:
-          path: /
-          method: ANY
       - http:
           path: /{proxy+}
           method: ANY

@@ -48,29 +48,41 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -d ''
 ```
-
-Push the docker image to Docker Hub
-
-```bash
-docker login
-docker build -t <docker-hub-username>/sentiment-serverless-framework:0.1 -f Dockerfile.prod .
-docker push <docker-hub-username>/sentiment-serverless-framework:0.1
-```
-
 ### Deploy using serverless
 
+Reference: [Serverless Docker deploy](https://www.serverless.com/blog/container-support-for-lambda) 
+
+We will now deploy this application using serverless. This will add the application to Monitor on serverless dashboard.
+
 ```bash
-serverless deploy
+serverless
 ```
 
-Get information about deployment
+Follow the instructions to deploy the application on AWS. Once application is deployed, get information about deployment.
 
 ```bash
 serverless info
 ```
 
-Use serverless CI/CD
+Test application
 
-Monitor on serverless dashboard
+```bash
+curl -i <api-endpoint>
+```
+
+Fetch logs
+
+```bash
+serverless logs -f
+```
+
+Remove service
+
+```bash
+serverless remove
+```
+
+Use serverless CI/CD for github
+
 
 ## Serverless Cloud
