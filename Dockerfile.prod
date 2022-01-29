@@ -1,10 +1,17 @@
-FROM public.ecr.aws/lambda/python:3.8
+FROM python:3.8-slim-buster
 
-COPY requirements.txt ${LAMBDA_TASK_ROOT}
+WORKDIR /app
 
-RUN python3 -m ensurepip
-RUN pip install -r requirements.txt
+COPY requirements.txt /app/requirements.txt
 
-COPY . ${LAMBDA_TASK_ROOT}
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-CMD ["project.app.handler"]
+COPY setup.py /app/setup.py
+
+RUN pip install .
+
+COPY . .
+
+EXPOSE 8000
+
+ENTRYPOINT ["uvicorn", "--host", "0.0.0.0", "--port", "8000", "project.app:app"]

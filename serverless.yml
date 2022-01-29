@@ -1,5 +1,5 @@
 org: dudeperf3ct
-app: serverless-fastapi-aws-deploy
+app: serverless-fastapi-aws-lambda-deploy
 service: sentiment-api
 
 frameworkVersion: "2 || 3"

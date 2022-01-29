@@ -2,3 +2,9 @@
 **/__pycache__
 **/*.md
 .gitignore
+.pytest_cache/
+.flake8
+.isort.cfg
+.markdownlint.yaml
+.coverage
+.trunk
