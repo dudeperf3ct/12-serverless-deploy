@@ -1,0 +1,24 @@
+org: dudeperf3ct
+app: serverless-fastapi-aws-deploy
+service: sentiment-api
+
+frameworkVersion: '2 || 3'
+
+provider:
+  name: aws
+  lambdaHashingVersion: '20201221'
+  apiName: ${self:service}
+  apiGateway:
+    description: REST API ${self:service}
+    metrics: true
+
+functions:
+  api:
+    image: dudeperf3ct7/sentiment-serverless-framework:0.1
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{proxy+}
+          method: ANY	
