@@ -16,4 +16,5 @@ async def root():
 async def healthcheck():
     return "dummy check! Classifier is all ready to go!"
 
+
 handler = Mangum(app)

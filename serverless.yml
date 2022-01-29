@@ -2,11 +2,11 @@ org: dudeperf3ct
 app: serverless-fastapi-aws-deploy
 service: sentiment-api
 
-frameworkVersion: '2 || 3'
+frameworkVersion: "2 || 3"
 
 provider:
   name: aws
-  lambdaHashingVersion: '20201221'
+  lambdaHashingVersion: "20201221"
   apiName: ${self:service}
   apiGateway:
     description: REST API ${self:service}
@@ -21,4 +21,4 @@ functions:
           method: ANY
       - http:
           path: /{proxy+}
-          method: ANY	
+          method: ANY

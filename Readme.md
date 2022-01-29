@@ -7,9 +7,9 @@ In this exercise, transformers sentiment classifier fastapi application is deplo
 
 ## Serverless Framework
 
-[Serverless Framework](https://www.serverless.com/framework/docs) provides hassle free develop, deploy, troubleshoot and secure serverless applications.  
+[Serverless Framework](https://www.serverless.com/framework/docs) provides hassle free develop, deploy, troubleshoot and secure serverless applications.
 
-Under the hood, the Serverless Framework is deploying your code to a  cloud provider like AWS, Microsoft Azure, Google Cloud Platform, Apache  OpenWhisk, Cloudflare Workers, or a Kubernetes-based solution like Kubeless.
+Under the hood, the Serverless Framework is deploying your code to a cloud provider like AWS, Microsoft Azure, Google Cloud Platform, Apache OpenWhisk, Cloudflare Workers, or a Kubernetes-based solution like Kubeless.
 
 Pre-requisites
 
