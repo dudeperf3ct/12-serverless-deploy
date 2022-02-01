@@ -8,6 +8,6 @@ router = APIRouter()
 
 @router.post("/classify")
 async def predict_sentiment(input_text: str = Query(..., min_length=2)):
-    classifier = SentimentBertModel("distilbert-base-uncased-finetuned-sst-2-english")
+    classifier = SentimentBertModel("model/")
     out_dict = classifier.predict(input_text)
     return JSONResponse(out_dict)

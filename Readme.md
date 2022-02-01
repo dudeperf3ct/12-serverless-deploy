@@ -55,7 +55,14 @@ Reference: [Serverless Docker deploy](https://www.serverless.com/blog/container-
 We will now deploy this application using serverless. This will add the application to Monitor on serverless dashboard.
 
 ```bash
+# add monitoring to serverless dashboard
 serverless
+```
+
+Deploy the application using Serverless Framework.
+
+```bash
+serverless deploy
 ```
 
 Follow the instructions to deploy the application on AWS. Once application is deployed, get information about deployment.
@@ -73,7 +80,7 @@ curl -i <api-endpoint>
 Fetch logs
 
 ```bash
-serverless logs -f
+serverless logs -f hello
 ```
 
 Remove service
@@ -86,3 +93,5 @@ Use serverless CI/CD for github
 
 
 ## Serverless Cloud
+
+
