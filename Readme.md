@@ -5,6 +5,16 @@ In this exercise, transformers sentiment classifier fastapi application is deplo
 1. [Serverless Framework](https://www.serverless.com/framework/docs)
 2. [Serverless Cloud](https://www.serverless.com/cloud/docs)
 
+Serverless Version
+
+```bash
+sls --version
+
+Framework Core: 3.1.0 (standalone)
+Plugin: 6.0.0
+SDK: 4.3.0
+```
+
 ## Serverless Framework
 
 [Serverless Framework](https://www.serverless.com/framework/docs) provides hassle free develop, deploy, troubleshoot and secure serverless applications.
@@ -48,9 +58,10 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -d ''
 ```
-### Deploy using serverless
 
-Reference: [Serverless Docker deploy](https://www.serverless.com/blog/container-support-for-lambda) 
+### Deploy using serverless framework
+
+Reference: [Serverless Docker deploy](https://www.serverless.com/blog/container-support-for-lambda)
 
 We will now deploy this application using serverless. This will add the application to Monitor on serverless dashboard.
 
@@ -62,10 +73,10 @@ serverless
 Deploy the application using Serverless Framework.
 
 ```bash
-serverless deploy
+serverless deploy --stage dev --verbose
 ```
 
-Follow the instructions to deploy the application on AWS. Once application is deployed, get information about deployment.
+Once application is deployed, get information about deployment.
 
 ```bash
 serverless info
@@ -73,25 +84,33 @@ serverless info
 
 Test application
 
+Vist `<api-endpoint>/docs` to see if Swagger UI is available.
+
 ```bash
 curl -i <api-endpoint>
+```
+
+Test the classification endpoint
+
+```bash
+curl -X 'POST' \
+  '<api-endpoint>/classify?input_text=i%20like%20you' \
+  -H 'accept: application/json' \
+  -d ''
 ```
 
 Fetch logs
 
 ```bash
-serverless logs -f hello
+serverless logs -f sentimentapi
 ```
 
 Remove service
 
 ```bash
-serverless remove
+sls remove --stage dev
 ```
 
-Use serverless CI/CD for github
-
+Additional: CI/CD can be [integrated](https://www.serverless.com/framework/docs/guides/cicd) using Serverless Dashboard.
 
 ## Serverless Cloud
-
-

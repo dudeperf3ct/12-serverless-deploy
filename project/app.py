@@ -1,9 +1,14 @@
+import os
+
 from fastapi import FastAPI
 from mangum import Mangum
 
 from project import classifier_router
 
-app = FastAPI()
+stage = os.environ.get("STAGE", None)
+openapi_prefix = f"/{stage}" if stage else "/"
+
+app = FastAPI(title="Sentiment Classifier App", root_path=openapi_prefix)
 app.include_router(classifier_router.router)
 
 

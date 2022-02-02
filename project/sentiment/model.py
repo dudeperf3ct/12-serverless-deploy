@@ -3,7 +3,7 @@ from collections import defaultdict
 import torch
 import torch.nn.functional as F
 from loguru import logger
-from transformers import DistilBertForSequenceClassification, DistilBertTokenizerFast
+from transformers import DistilBertForSequenceClassification, DistilBertTokenizer
 
 
 class SentimentBertModel:
@@ -18,9 +18,9 @@ class SentimentBertModel:
         )
         self.model.eval()
         self.model.to(self.device)
-        self.tokenizer = DistilBertTokenizerFast.from_pretrained(self.model_name)
+        self.tokenizer = DistilBertTokenizer.from_pretrained(self.model_name)
         logger.info(
-            f"Using {self.model_name} finetuned model for sentiment classification"
+            "Using distilbert-base-uncased-finetuned-sst-2-english finetuned model for sentiment classification"
         )
 
     def predict(self, text: str) -> dict:
@@ -51,6 +51,6 @@ class SentimentBertModel:
 
 
 if __name__ == "__main__":
-    classifier = SentimentBertModel()
+    classifier = SentimentBertModel("model/")
     print(classifier.predict("i like you!"))
     print(classifier.predict("i hate you!"))

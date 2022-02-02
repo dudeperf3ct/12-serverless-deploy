@@ -9,9 +9,9 @@ RUN curl -L https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-engli
 RUN curl https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english/resolve/main/config.json -o ./model/config.json
 RUN curl https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english/resolve/main/tokenizer.json -o ./model/tokenizer.json
 RUN curl https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english/resolve/main/tokenizer_config.json -o ./model/tokenizer_config.json
+RUN curl https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english/resolve/main/vocab.txt -o ./model/vocab.txt
 
 COPY setup.py ./setup.py
-
 RUN pip install .
 
 COPY . ./

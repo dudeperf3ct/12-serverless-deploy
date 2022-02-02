@@ -2,10 +2,12 @@ org: dudeperf3ct
 app: serverless-fastapi-aws-lambda-deploy
 service: sentiment-api
 
-frameworkVersion: "2 || 3"
+frameworkVersion: "3"
 
 provider:
   name: aws
+  runtime: python3.8
+  stage: ${opt:stage, "dev"}
   ecr:
     # In this section you can define images that will be built locally and uploaded to ECR
     images:
@@ -13,10 +15,13 @@ provider:
         path: ./
 
 functions:
-  hello:
+  sentimentapi:
     image:
       name: sentimentapp
+    timeout: 300
     events:
       - http:
           path: /{proxy+}
           method: ANY
+    environment:
+      STAGE: ${self:provider.stage}
