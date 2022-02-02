@@ -1,9 +1,6 @@
 # Serverless
 
-In this exercise, transformers sentiment classifier fastapi application is deployed using two ways
-
-1. [Serverless Framework](https://www.serverless.com/framework/docs)
-2. [Serverless Cloud](https://www.serverless.com/cloud/docs)
+In this exercise, transformers sentiment classifier fastapi application is deployed using [Serverless Framework](https://www.serverless.com/framework/docs)
 
 Serverless Version
 
@@ -112,5 +109,3 @@ sls remove --stage dev
 ```
 
 Additional: CI/CD can be [integrated](https://www.serverless.com/framework/docs/guides/cicd) using Serverless Dashboard.
-
-## Serverless Cloud
